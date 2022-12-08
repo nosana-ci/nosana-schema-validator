@@ -1,0 +1,22 @@
+{
+    "nosana": {
+        "description": "Run Test"
+    },
+    "global": {
+        "image": "registry.hub.docker.com/library/node:16",
+        "trigger": {
+        "branch": [
+            "main"
+        ]
+        }
+    },
+    "jobs": [
+        {
+        "name": "install-deps and run test",
+        "commands": [
+            "npm ci",
+            "npm run test"
+        ]
+        }
+    ]
+}
