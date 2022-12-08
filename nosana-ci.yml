@@ -1,0 +1,68 @@
+# .nosana-ci.yml
+nosana:
+    description: <pipeline_name> # required
+    wallet: <your_solana_address> # required
+    market: <nosana_market_solana_address> # required
+    storage: <storage_backend> # optional, default: IPFS
+
+# Global configuration
+global:
+    image: <container_image> # required (full url required)
+
+    # Trigger event that starts the pipeline
+    trigger:
+        branch:
+            - <git_branch> # optional, default: main
+            - <other_git_branch> # optional
+
+    # environment variables
+    environment:
+        <key>: <value> # optional
+        <other_key>: <other_value> # optional nth environment variable
+
+    # allow pipeline to continue if one job fails
+    allow_failure: <boolean> # default: true
+
+# List of jobs
+jobs:
+    # Required job
+    - name: <job_name> # required
+      image: <container_image> # optional, overrides global image
+      environment:
+          <key>: <value> # optional, overrides global environment
+      allow_failure: <boolean> # optional, overrides global allow_failure
+      commands:
+          - <shell_command> # required
+          - <other_shell_command> # optional
+          - cmd: <other_shell_command>
+            working_dir: <working_dir> # optional, directory to run command in
+            allow_failure: <boolean> # optional, overrides global allow_failure
+            artifacts: # optional
+                - name: <artifact_name> # required
+                  path: <artifact_relative_path> # required
+
+      resources: # optional
+          - <artifact_name> # optional
+          - <other_artifact_name> # optional
+
+      artifacts: # optional
+          - name: <artifact_name> # required
+            path: <artifact_relative_path> # required
+
+      # Optional nth job
+    - name: <job_name> # required
+      image: <container_image> # optional, overrides global image
+      environment:
+          <key>: <value> # optional, overrides global environment
+      allow_failure: <boolean> # optional, overrides global allow_failure
+      commands:
+          - <shell_command> # required
+          - <other_shell_command> # optional
+
+      resources: # optional
+          - <artifact_name> # required
+          - <other_artifact_name> # optional
+
+      artifacts: # optional
+          - name: <artifact_name> # required
+            path: <artifact_relative_path> # required
