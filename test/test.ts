@@ -1,12 +1,8 @@
 import { validateJson, validateYaml } from '../index'
 import { exampe_yaml, example_json } from './example'
-import { parse } from 'yaml'
-
 
 const validYaml = () => {
   console.log("Validating Yaml Schema", exampe_yaml)
-  // const json = parse(exampe_yaml)
-  // const validated = validateJson(json)
   const validated = validateYaml(exampe_yaml)
 
   if (validated) {

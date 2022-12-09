@@ -1,7 +1,7 @@
 import { NosJobData } from "./types"
 import { JSONSchemaType } from 'ajv'
 
-const NosPipelineSchema: JSONSchemaType<NosJobData> = {
+export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
     type: "object",
 
     properties: {
@@ -179,5 +179,3 @@ const NosPipelineSchema: JSONSchemaType<NosJobData> = {
 
     additionalProperties: false
   }
-
-export { NosPipelineSchema }

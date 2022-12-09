@@ -11,9 +11,10 @@ const ajv = new AJV({
 // addFormats(ajv)
 
 // Create validate function
-const validateJson = ajv.compile(NosPipelineSchema)
+export const validateJson = ajv.compile(NosPipelineSchema)
 
 // yaml utility
-const validateYaml = (yaml: string) => validateJson(parse(yaml))
+export const validateYaml = (yaml: string) => validateJson(parse(yaml))
 
-export { validateJson, validateYaml }
+
+export { NosPipelineSchema, parse as parseYaml }
