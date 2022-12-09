@@ -1,4 +1,4 @@
-import { validateJson, validateYaml } from '../index'
+import { validateJson, validateYaml } from '../src/index'
 import { exampe_yaml, example_json } from './example'
 
 const validYaml = () => {
