@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext"],
-    "module": "esnext",
-    "target": "esnext",
+    "declaration": true,
+    "lib": ["es6", "dom", "dom.iterable"],
+    "module": "es6",
     "moduleResolution": "node",
-    "strictNullChecks": true,
-
-    // so that if your project isn't using TypeScript, it still has autocomplete
-    "allowJs": true,
-
-    // "bun-types" is the important part
-    "types": ["bun-types"]
-  }
+    "removeComments": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6",
+    "outDir": "./dist"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }
