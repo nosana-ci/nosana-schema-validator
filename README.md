@@ -1,13 +1,13 @@
 # Nosana Validate Pipeline Schema
 
-Simple to use library to validate Nosana Pipeline Schema.
+Simple to use library to validate Nosana Pipeline Schemas.
 You can learn more about the pipeline at [Nosana Pipeline documentation](https://docs.nosana.io/pipelines/intro.html).
 
 The schema can be found at [src/schema.ts](src/schema.ts).
 
 When this library is bundled as UMD and ESM, types are also included.
 
-# Quickstart
+## Quickstart
 
 Install:
 

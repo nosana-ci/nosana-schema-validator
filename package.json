@@ -36,7 +36,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/nosana-ci/members/developers/nosana-schema-validator/"
+    "url": "https://github.com/nosana-ci/nosana-schema-validator"
   },
   "keywords": [
     "nosana",
