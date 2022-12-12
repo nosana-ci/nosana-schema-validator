@@ -2,6 +2,7 @@
   "name": "@nosana-ci/schema-validator",
   "type": "module",
   "devDependencies": {
+    "@digitak/tsc-esm": "^3.1.4",
     "@typescript-eslint/eslint-plugin": "^5.46.0",
     "@typescript-eslint/parser": "^5.46.0",
     "bun-types": "^0.2.0",
@@ -17,7 +18,7 @@
   },
   "description": "To install dependencies:",
   "version": "0.0.6",
-  "main": "dist/index.min.js",
+  "main": "dist/index.min.mjs",
   "module": "dist/index.min.mjs",
   "unpkg": "dist/index.umd.min.js",
   "types": "dist/index.d.ts",
@@ -27,8 +28,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist",
+    "tsc": "tsc-esm",
     "lint": "eslint src/** test/**",
-    "build": "npm run clean && npm run lint && tsc --project tsconfig.json && npm run bundle:esm && npm run bundle:esm:min && npm run bundle:umd && npm run bundle:umd:min && npm run build:stats",
+    "build": "npm run clean && npm run lint && tsc-esm --project tsconfig.json && npm run bundle:esm && npm run bundle:esm:min && npm run bundle:umd && npm run bundle:umd:min && npm run build:stats",
     "build:stats": "(echo '\\033[35;3m' ; cd dist && ls -lh index*js index*gz | tail -n +2 | awk '{print $5,$9}')",
     "bundle:esm": "rollup dist/index.js --file dist/index.mjs --format esm",
     "bundle:esm:min": "terser --ecma 6 --compress --mangle --module -o dist/index.min.mjs -- dist/index.mjs && gzip -9 -c dist/index.min.mjs > dist/index.min.mjs.gz",
