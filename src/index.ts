@@ -10,9 +10,10 @@ const ajv = new AJV({
 })
 
 // Create validate function
-export const validateJson = (schema: any) => {
+export const validateJson = (schema: string) => {
+  const parsed = JSON.parse(schema)
   const validate = ajv.compile(NosPipelineSchema)
-  const valid = validate(schema)
+  const valid = validate(parsed)
   return { valid, errors: validate.errors }
 }
 
