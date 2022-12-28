@@ -48,5 +48,7 @@ const nosana_pipeline = {
     ]
 }
 
-validateJson(nosana_pipeline) // => true
+validateJson(nosana_pipeline)
+// => { valid: true, errors: []}
+
 ```
