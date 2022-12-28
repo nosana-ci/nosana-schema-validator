@@ -5,6 +5,7 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
     type: "object",
 
     properties: {
+
       nosana: {
         type: "object",
         nullable: false,
@@ -13,20 +14,24 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
             type: "string",
             nullable: false,
             minLength: 3,
-            maxLength: 100
+            maxLength: 255
           }
         }
       },
+
       global: {
         type: "object",
         nullable: false,
         properties: {
+
+          // 📦️ Container image to use for all jobs
           image: {
             type: "string",
-            nullable: false,
-            minLength: 3, // Not sure if this is a good minimum
-            maxLength: 100 // This might need to be longer
+            nullable: true,
+            minLength: 1,
+            maxLength: 4096
           },
+
           trigger: {
             type: "object",
             nullable: true,
@@ -39,37 +44,46 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
               }
             }
           },
-          environment: { // This is an object containing key-value pairs.
+
+          environment: {
             type: "object",
             nullable: true,
-            additionalProperties: { type: "string" } // Additional properties need to be of type string.
+            additionalProperties: { type: "string" }
           },
+
           allow_failure: {
             type: "boolean",
             nullable: true
           }
         }
       },
+
       jobs: {
         type: "array",
         nullable: false,
         items: {
           type: "object",
           nullable: false,
+
           properties: {
             name: {
               type: "string",
               nullable: false
             },
+
             image: {
               type: "string",
-              nullable: true
+              nullable: true,
+              minLength: 1,
+              maxLength: 4096
             },
+
             allow_failure: {
               type: "boolean",
               nullable: true
             },
-            resources: { // this is a list containing key-value pairs, so it should be an object.
+
+            resources: {
               type: "array",
               nullable: true,
               items: {
@@ -87,7 +101,8 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
                 }
               }
             },
-            artifacts: { // this is a list containing key-value pairs, so it should be an object.
+
+            artifacts: {
               type: "array",
               nullable: true,
               items: {
@@ -105,6 +120,7 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
                 }
               }
             },
+
             commands: {
               type: "array",
               nullable: false,
@@ -121,15 +137,18 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
                         type: "string",
                         nullable: false
                       },
+
                       working_dir: {
                         type: "string",
                         nullable: true
                       },
+
                       allow_failure: {
                         type: "boolean",
                         nullable: true
                       },
-                      resources: { // this is a list containing key-value pairs, so it should be an object.
+
+                      resources: {
                         type: "array",
                         nullable: true,
                         items: {
@@ -140,6 +159,7 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
                               type: "string",
                               nullable: false
                             },
+
                             path: {
                               type: "string",
                               nullable: false
@@ -147,7 +167,8 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
                           }
                         }
                       },
-                      artifacts: { // this is a list containing key-value pairs, so it should be an object.
+
+                      artifacts: {
                         type: "array",
                         nullable: true,
                         items: {
@@ -156,8 +177,9 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
                           properties: {
                             name: {
                               type: "string",
-                              nullable: false
+                              nullable: false,
                             },
+
                             path: {
                               type: "string",
                               nullable: false
