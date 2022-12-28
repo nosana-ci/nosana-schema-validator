@@ -5,12 +5,12 @@ const validYaml = () => {
   console.log("Validating Yaml Schema", exampe_yaml)
   const validated = validateYaml(exampe_yaml)
 
-  if (validated) {
+  if (validated.valid) {
     console.log("✅ Yaml Schema Correct.")
   } else {
     console.log("❌ Yaml Schema Incorrect.")
-    if (validateJson.errors) {
-      validateJson?.errors?.forEach(err => console.log(err))
+    if (validated.errors) {
+      validated.errors.forEach(err => console.log(err))
     }
   }
 }
@@ -20,11 +20,13 @@ const validJson = () => {
 
   const validated = validateJson(example_json)
 
-  if (validated) {
+  if (validated.valid) {
     console.log('✅ JSON Schema Correct!')
   } else {
     console.log('❌ JSON Schema Wrong!')
-    validateJson?.errors?.forEach(err => console.log(err))
+    if (validated.errors) {
+      validated.errors.forEach(err => console.log(err))
+    }
   }
 }
 
