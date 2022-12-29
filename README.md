@@ -95,7 +95,7 @@ If the schema is invalid, the errors will be returned.
 The `instancePath` will be the path to the invalid property and the `message` will be the reason why it is invalid.
 
 ```javascript
-const nosana_pipeline = {
+const nosana_pipeline ={
     "nosana": {
         "description": "Run Test"
     },
@@ -109,11 +109,11 @@ const nosana_pipeline = {
     },
     "jobs": [
         {
-        "name": "install-deps and run test",
-        "commands": [
-            "npm ci",
-            "npm run test"
-        ]
+            "name": "install-deps and run test",
+            "commands": {
+                "one": "npm ci",
+                "two": "npm run test"
+            }
         }
     ]
 }
