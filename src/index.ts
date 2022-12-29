@@ -6,15 +6,15 @@ import { parse } from 'yaml'
 // Create AJV
 const ajv = new AJV({
   allErrors: true,
-  verbose: true
+  verbose: true,
 })
 
 // Create validate function
-export const validateJson = (schema: string) => {
+export const validateJson = (schema: any) => {
   const parsed = JSON.parse(schema)
   const validate = ajv.compile(NosPipelineSchema)
   const valid = validate(parsed)
-  return { valid, errors: validate.errors }
+  return { valid, ...validate }
 }
 
 // yaml utility
