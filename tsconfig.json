@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "lib": ["es6", "dom", "dom.iterable"],
-    "module": "es6",
+    "lib": ["es2020", "dom", "dom.iterable"],
+    "module": "es2022",
     "moduleResolution": "node",
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es6",
+    "target": "es2022",
     "outDir": "./dist"
   },
   "include": [
