@@ -37,7 +37,7 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
             nullable: true,
             properties: {
               branch: {
-                type: "array",
+                type: ["array", "string"],
                 items: { type: "string" },
                 nullable: true,
                 uniqueItems: true
