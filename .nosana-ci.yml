@@ -1,0 +1,39 @@
+trigger:
+  repo: https://github.com/nosana-ci/pipeline-templates
+  commit-sha: fc1b99bc5ae3821a2632f1d61359568eedc111c6
+
+nosana:
+  description: "Template Repo Pipeline"
+
+global:
+  image: registry.hub.docker.com/library/node:18
+
+  trigger:
+    branch:
+      - pipeline
+
+  environment:
+    SECRET_VALUE:
+      type: "nosana/secret"
+      endpoint: "https://secrets.k8s.dev.nos.ci"
+      value: "npm-deploy-key"
+
+  allow_failure: false
+
+jobs:
+  - name: "Install Dependencies"
+    commands:
+      - npm ci
+      - ls -lah
+    artifacts:
+      - name: node_modules
+        path: ./node_modules
+
+  - name: "Run Validator Script"
+    commands:
+      - pwd
+      - ls -lha node_modules/node_modules
+      - sh -c 'echo $SECRET_VALUE'
+    resources:
+      - name: node_modules
+        path: ./node_modules
