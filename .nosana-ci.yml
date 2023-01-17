@@ -14,23 +14,9 @@ global:
       type: "nosana/secret"
       endpoint: "https://secrets.k8s.dev.nos.ci"
       value: "npm-deploy-key"
-
-  allow_failure: false
-
+      
 jobs:
   - name: "Install Dependencies"
     commands:
       - npm ci
       - ls -lah
-    artifacts:
-      - name: node_modules
-        path: ./node_modules
-
-  - name: "Run Validator Script"
-    commands:
-      - pwd
-      - ls -lha node_modules/node_modules
-      - sh -c 'echo $SECRET_VALUE'
-    resources:
-      - name: node_modules
-        path: ./node_modules
