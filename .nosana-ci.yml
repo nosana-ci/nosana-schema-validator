@@ -1,7 +1,3 @@
-trigger:
-  repo: https://github.com/nosana-ci/pipeline-templates
-  commit-sha: fc1b99bc5ae3821a2632f1d61359568eedc111c6
-
 nosana:
   description: "Template Repo Pipeline"
 
@@ -10,7 +6,7 @@ global:
 
   trigger:
     branch:
-      - pipeline
+      - main
 
   environment:
     SECRET_VALUE:
