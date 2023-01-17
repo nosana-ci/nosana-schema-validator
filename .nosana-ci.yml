@@ -1,5 +1,6 @@
 nosana:
   description: "Template Repo Pipeline"
+  
 
 global:
   image: registry.hub.docker.com/library/node:18
