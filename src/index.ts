@@ -18,6 +18,6 @@ export const validateJson = (schema: any) => {
 }
 
 // yaml utility
-export const validateYaml = (yaml: string) => validateJson(parse(yaml))
+export const validateYaml = (yaml: string) => validateJson(JSON.stringify(parse(yaml)))
 
 export { NosPipelineSchema, parse as parseYaml }
