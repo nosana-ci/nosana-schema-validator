@@ -7,6 +7,7 @@ import { parse } from 'yaml'
 const ajv = new AJV({
   allErrors: true,
   verbose: true,
+  allowUnionTypes: true,
 })
 
 // Create validate function
