@@ -1,7 +1,6 @@
 nosana:
   description: "Template Repo Pipeline"
   
-
 global:
   image: registry.hub.docker.com/library/node:18
 
@@ -18,5 +17,6 @@ global:
 jobs:
   - name: "Install Dependencies"
     commands:
+     - echo test ci
       - npm ci
       - ls -lah
