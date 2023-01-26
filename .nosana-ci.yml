@@ -17,6 +17,6 @@ global:
 jobs:
   - name: "Install Dependencies"
     commands:
-     - echo test ci
+     - echo trigger ci
       - npm ci
       - ls -lah
