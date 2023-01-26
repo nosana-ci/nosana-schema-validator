@@ -37,7 +37,7 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
             nullable: true,
             properties: {
               branch: {
-                type: "array",
+                type: ["array", "string"],
                 items: { type: "string" },
                 nullable: true,
                 uniqueItems: true
@@ -46,9 +46,31 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
           },
 
           environment: {
-            type: "object",
-            nullable: true,
-            additionalProperties: { type: "string" }
+            anyOf: [
+              {
+                type: "object",
+                nullable: true,
+                additionalProperties: { type: "string" } // Additional properties need to be of type string.
+              },
+              {
+                type: "object",
+                nullable: true,
+                properties: {
+                  type: {
+                    type: "string",
+                    nullable: false,
+                  },
+                  endpoint: {
+                    type: "string",
+                    nullable: false,
+                  },
+                  value: {
+                    type: "string",
+                    nullable: false,
+                  }
+                }
+              }
+            ]
           },
 
           allow_failure: {
@@ -76,6 +98,34 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
               nullable: true,
               minLength: 1,
               maxLength: 4096
+            },
+
+            environment: {
+              anyOf: [
+                {
+                  type: "object",
+                  nullable: true,
+                  additionalProperties: { type: "string" } // Additional properties need to be of type string.
+                },
+                {
+                  type: "object",
+                  nullable: true,
+                  properties: {
+                    type: {
+                      type: "string",
+                      nullable: false,
+                    },
+                    endpoint: {
+                      type: "string",
+                      nullable: false,
+                    },
+                    value: {
+                      type: "string",
+                      nullable: false,
+                    }
+                  }
+                }
+              ]
             },
 
             allow_failure: {
