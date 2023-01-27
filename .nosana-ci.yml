@@ -8,6 +8,7 @@ global:
     branch:
       - main
       
+      
   environment:
     SECRET_VALUE:
       type: "nosana/secret"
