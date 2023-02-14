@@ -8,6 +8,7 @@ const ajv = new AJV({
   allErrors: true,
   verbose: true,
   allowUnionTypes: true,
+  strict: false,
 })
 
 // Create validate function
