@@ -164,14 +164,16 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
             commands: {
               type: "array",
               nullable: false,
+              additionalItems: false,
               items: {
                 anyOf: [
                   {
                     type: "string",
-                    nullable: false
+                    nullable: false,
                   },
                   {
                     type: "object",
+                    nullable: false,
                     properties: {
                       cmd: {
                         type: "string",

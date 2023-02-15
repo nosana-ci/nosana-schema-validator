@@ -75,6 +75,32 @@ export const error_json = `
 }
 `
 
+export const error_list_json = `
+{
+  "nosana": {
+      "description": "Run Test"
+  },
+  "global": {
+      "image": "registry.hub.docker.com/library/node:16",
+      "trigger": {
+      "branch": [
+          "main"
+      ]
+      }
+  },
+  "jobs": [
+      {
+          "name": "install-deps and run test",
+          "commands": [
+            "npm ci",
+            ["npm run test", "npm run test2"]
+          ]
+          
+      }
+  ]
+}
+`
+
 export const yml_schema = `
 nosana:
   description: Nosana-Node Pipeline
