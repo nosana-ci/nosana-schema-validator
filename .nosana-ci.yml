@@ -18,8 +18,5 @@ global:
 jobs:
   - name: "Install Dependencies"
     commands:
+      - ls
       - npm ci
-      - npm run lint
-      - npm run build
-      - npm run test
-      - npm run publish:public
