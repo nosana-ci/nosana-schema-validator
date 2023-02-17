@@ -10,17 +10,15 @@ global:
 
 
   environment:
-    ENV: prod
-    #SECRET_VALUE:
-      #type: "nosana/secret"
-      #endpoint: "https://secrets.k8s.dev.nos.ci"
-      #value: "npm-deploy-key"
+    NPM_PAT:
+      type: "nosana/secret"
+      endpoint: "https://secrets.k8s.dev.nos.ci"
+      value: "npm-deploy-key"
 
 jobs:
   - name: "Install Dependencies"
     commands:
-      - echo trigger ci on $ENV
       - npm ci
-      - echo $PATH
-      - cd /tmp
-      - ls -lah
+      - npm run lint
+      - npm run build
+      - npm run test
