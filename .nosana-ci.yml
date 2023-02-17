@@ -9,11 +9,15 @@ global:
       - main
 
   environment:
-    NPM_PAT: "test"
+    TEST:
+      type: "nosana/secret"
+      endpoint: "https://secrets.k8s.dev.nos.ci"
+      value: "ENV"
       
 jobs:
   - name: "Install Dependencies"
     commands:
+      - echo $TEST
       - npm ci
       - npm run lint
       - npm run build
