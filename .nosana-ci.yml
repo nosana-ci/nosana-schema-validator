@@ -8,13 +8,9 @@ global:
     branch:
       - main
 
-
   environment:
-    NPM_PAT:
-      type: "nosana/secret"
-      endpoint: "https://secrets.k8s.dev.nos.ci"
-      value: "npm-deploy-key"
-
+    NPM_PAT: "test"
+      
 jobs:
   - name: "Install Dependencies"
     commands:
