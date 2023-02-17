@@ -10,8 +10,11 @@ global:
       - main
 
   environment:
-    NPM_PAT: "npmjs_pat_12345"
-      
+    NPM_PAT: 
+      type: "nosana/secret"
+      endpoint: "https://secrets.k8s.dev.nos.ci"
+      value: "npm-deploy-key"    
+  
 jobs:
   - name: "Install Dependencies"
     commands:
