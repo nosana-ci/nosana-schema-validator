@@ -7,17 +7,10 @@ global:
   trigger:
     branch:
       - main
-
-  environment:
-    TEST:
-      type: "nosana/secret"
-      endpoint: "https://secrets.nosana.ci"
-      value: "ENV"
       
 jobs:
   - name: "Install Dependencies"
     commands:
-      - echo $TEST
       - npm ci
       - npm run lint
       - npm run build
