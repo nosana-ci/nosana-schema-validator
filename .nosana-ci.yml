@@ -11,7 +11,7 @@ global:
   environment:
     TEST:
       type: "nosana/secret"
-      endpoint: "https://secrets.k8s.dev.nos.ci"
+      endpoint: "https://secrets.nosana.ci"
       value: "ENV"
       
 jobs:
