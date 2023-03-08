@@ -1,24 +1,30 @@
+#   _ __   ___  ___  __ _ _ __   __ _
+#  | '_ \ / _ \/ __|/ _` | '_ \ / _` |
+#  | | | | (_) \__ \ (_| | | | | (_| |
+#  |_| |_|\___/|___/\__,_|_| |_|\__,_|
+
 nosana:
-  description: "Template Repo Pipeline"
+  description: "Nosana Schema Validator Pipeline"
+  
 
 global:
-  image: node:18
+  image: registry.hub.docker.com/library/node:18
 
   trigger:
     branch:
       - main
 
   environment:
-    TEST:
+    NPM_TOKEN:
       type: "nosana/secret"
-      endpoint: "https://secrets.nosana.ci"
-      value: "ENV"
+      endpoint: "https://secrets.k8s.prd.nos.ci"
+      value: "npm-deploy-key"
       
 jobs:
   - name: "Install Dependencies"
     commands:
-      - echo $TEST
       - npm ci
       - npm run lint
       - npm run build
       - npm run test
+      - npm run publish:public
