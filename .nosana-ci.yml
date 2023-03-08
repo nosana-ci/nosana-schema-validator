@@ -27,4 +27,6 @@ jobs:
       - npm run lint
       - npm run build
       - npm run test
+      - git config --global user.email "dev@nosana.io"
+      - git config --global user.name "Nosana Dev"
       - npm run publish:public
