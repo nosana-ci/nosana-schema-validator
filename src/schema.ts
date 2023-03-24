@@ -167,7 +167,7 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
                 },
                 path: {
                   type: "string",
-                  nullable: false,
+                  nullable: true,
                 },
               },
             },
