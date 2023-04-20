@@ -22,14 +22,6 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
       type: "object",
       nullable: false,
       properties: {
-        // 📦️ Container image to use for all jobs
-        image: {
-          type: "string",
-          nullable: true,
-          minLength: 1,
-          maxLength: 4096,
-        },
-
         trigger: {
           type: "object",
           nullable: true,
