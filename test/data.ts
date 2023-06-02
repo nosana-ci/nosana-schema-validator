@@ -1,9 +1,5 @@
 export const correct_json = `
 {
-  "nosana": {
-      "description": "Build Nosana Documentation",
-      "storage": "IPFS"
-  },
   "global": {
       "image": "registry.hub.docker.com/library/node:16",
       "trigger": {
@@ -48,13 +44,10 @@ export const correct_json = `
           ]
       }
   ]
-}`
+}`;
 
 export const error_json = `
 {
-  "nosana": {
-      "description": "Run Test"
-  },
   "global": {
       "image": "registry.hub.docker.com/library/node:16",
       "trigger": {
@@ -73,13 +66,10 @@ export const error_json = `
       }
   ]
 }
-`
+`;
 
 export const error_list_json = `
 {
-  "nosana": {
-      "description": "Run Test"
-  },
   "global": {
       "image": "registry.hub.docker.com/library/node:16",
       "trigger": {
@@ -99,12 +89,9 @@ export const error_list_json = `
       }
   ]
 }
-`
+`;
 
 export const yml_schema = `
-nosana:
-  description: Nosana-Node Pipeline
-      
 global:
   image: registry.hub.docker.com/library/cljkondo/clj-kondo
   
@@ -130,4 +117,4 @@ jobs:
       - clj-kondo --lint src --dependencies --parallel --copy-configs
       - clj -X:compile
       - clj -T:container build :config '{:main "nosana-node.main" :aliases [:production] :aot true :target-image {:image-name "djmbritt/nosana-node" :type :registry :username "djmbritt" :password $DOCKER_ENV_PAT}}'
-`
+`;

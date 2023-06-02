@@ -5,19 +5,6 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
   type: "object",
 
   properties: {
-    nosana: {
-      type: "object",
-      nullable: false,
-      properties: {
-        description: {
-          type: "string",
-          nullable: false,
-          minLength: 3,
-          maxLength: 255,
-        },
-      },
-    },
-
     global: {
       type: "object",
       nullable: false,

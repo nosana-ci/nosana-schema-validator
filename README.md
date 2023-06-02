@@ -28,9 +28,6 @@ Example:
 import { validateJson } from '@nosana-ci/schema-validator'
 
 const nosana_pipeline = {
-    "nosana": {
-        "description": "Run Test"
-    },
     "global": {
         "image": "registry.hub.docker.com/library/node:16",
         "trigger": {
@@ -62,9 +59,6 @@ It is also possible to validate a YAML file:
 ```javascript
 
 const yaml = `
-nosana:
-  description: Nosana-Node Pipeline
-      
 global:
   image: registry.hub.docker.com/library/cljkondo/clj-kondo
   
@@ -96,9 +90,6 @@ The `instancePath` will be the path to the invalid property and the `message` wi
 
 ```javascript
 const nosana_pipeline ={
-    "nosana": {
-        "description": "Run Test"
-    },
     "global": {
         "image": "registry.hub.docker.com/library/node:16",
         "trigger": {
