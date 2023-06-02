@@ -215,7 +215,7 @@ export const NosPipelineSchema: JSONSchemaType<NosJobData> = {
     },
   },
 
-  required: ["nosana", "global", "jobs"],
+  required: ["global", "jobs"],
 
   additionalProperties: false,
 };
