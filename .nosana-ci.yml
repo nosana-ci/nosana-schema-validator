@@ -13,7 +13,7 @@ global:
   environment:
     NPM_TOKEN:
       type: "nosana/secret"
-      endpoint: "https://secrets.k8s.dev.nos.ci"
+      endpoint: "https://secrets.k8s.prd.nos.ci"
       value: "npm-deploy-key"
       
 jobs:
@@ -23,4 +23,6 @@ jobs:
       - npm run lint
       - npm run build
       - npm run test
+      - git config --global user.email "dev@nosana.io"
+      - git config --global user.name "Nosana Dev"
       - npm run publish:public
